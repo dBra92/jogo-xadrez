@@ -30,6 +30,11 @@ public class UI {
 	public static final String ANSI_CYAN_BACKGROUND = "\u001B[46m";
 	public static final String ANSI_WHITE_BACKGROUND = "\u001B[47m";
 
+	public static void clearScrean() {
+		System.out.print("\033[H\033[2J");
+		System.out.flush();
+	}
+
 	public static ChessPosition readChessPosition(Scanner read) {
 
 		try {
@@ -39,7 +44,7 @@ public class UI {
 
 			return new ChessPosition(colum, row);
 		} catch (RuntimeException re) {
-			
+
 			throw new InputMismatchException("Error reading chessposition. Valid values are from A1 to H8");
 		}
 	}
